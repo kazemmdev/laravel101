@@ -13,10 +13,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::view('/', 'welcome');
+Route::view('/about', 'about');
 
-Route::get('/about', function () {
-    return 'Welcome to Laravel101';
+Route::get('/friends', function () {
+
+    $users = [
+        'John',
+        'Mike',
+        'Susan',
+        'Jimmy',
+        'Kazem'
+    ];
+
+    return view('me.friends', compact('users'));
 });
