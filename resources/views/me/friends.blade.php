@@ -1,15 +1,12 @@
-<ul>
-    <li>
-        <a href="/">Home</a>
-        <a href="/about">About</a>
-        <a href="/me">Profile</a>
-    </li>
-</ul>
+@extends('layouts.app')
 
+@section('title', 'My Friends')
+
+@section('content')
 <h1>My Friends</h1>
-
 <ul>
     @foreach ($users as $user) 
         <li> {{ $user }} </li>
     @endforeach
 </ul>
+@endsection
