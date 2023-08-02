@@ -1,8 +1,6 @@
 <?php
 
+use App\Http\Controllers\TaskController;
 use Illuminate\Support\Facades\Route;
 
-Route::view('/', 'home')->name('main.home');
-Route::view('/about', 'about')->name('main.about');
-
-Route::get('/friends', Controllers\UserController::class)->name('user.friends');
+Route::get('/', [TaskController::class, 'index'])->name('home.tasks');
