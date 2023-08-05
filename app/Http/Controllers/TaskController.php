@@ -16,18 +16,20 @@ class TaskController extends Controller
         return view('tasks.create');
     }
 
-    public function store()
-    {
-        request()->validate([
-            'title' => 'required|min:3|max:120|unique:tasks,title',
-            'description' => 'nullable|min:3|max:255'
-        ]);
+public function store()
+{
+    request()->validate([
+        'title' => 'required|min:3|max:120|unique:tasks,title',
+        'description' => 'nullable|min:3|max:255',
+        'expired_at' => 'nullable|date|after:now'
+    ]);
 
-        $task = new Task();
-        $task->title = request('title');
-        $task->description = request('description');
-        $task->save();
-        
-        return back();
-    }
+    $task = new Task();
+    $task->title = request('title');
+    $task->description = request('description');
+    $task->expired_at = request('expired_at');
+    $task->save();
+
+    return redirect("/");
+}
 }

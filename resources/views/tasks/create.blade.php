@@ -6,8 +6,9 @@
    <h1 class="text-xl font-bold mb-4">Add a new Task</h1>
    <form method="POST" action="tasks" class="p-4 bg-white rounded-xl transition border border-solid border-gray-200 shadow">
       @csrf
-      <input type="text" id="title" name="title" value="{{ old("title") }}" placeholder="Add title..."  class="w-full p-2 outline-none bg-transparent mb-1" />
-      <textarea row=2 id="description" name="description" placeholder="Add description..."  class="w-full p-2 outline-none bg-transparent mb-6">{{ old('description') }}</textarea>
+      <input type="text" id="title" name="title" value="{{ old("title") }}" placeholder="Title"  class="w-full p-2 outline-none bg-transparent border-b mb-1" />
+      <textarea row=2 id="description" name="description" placeholder="Note"  class="w-full p-2 outline-none bg-transparent mb-6">{{ old('description') }}</textarea>
+      <input type="datetime-local" id="expired_at" name="expired_at" value="{{ old("expired_at") }}" placeholder="expired_at" class="w-full p-2 outline-none bg-transparent mb-1" />
       <div class="flex items-start justify-between">
          <ul class="text-sm text-red-500 pt-2 font-medium">
             @if($errors->first('title'))
