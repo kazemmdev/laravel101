@@ -17,10 +17,17 @@ class TaskController extends Controller
     }
 
     public function store()
-    {        
+    {
+        request()->validate([
+            'title' => 'required|min:3|max:120|unique:tasks,title',
+            'description' => 'nullable|min:3|max:255'
+        ]);
+
         $task = new Task();
         $task->title = request('title');
+        $task->description = request('description');
         $task->save();
+        
         return back();
     }
 }
