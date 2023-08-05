@@ -17,9 +17,7 @@ class TaskController extends Controller
     }
 
     public function store()
-    {
-        dd(request('title'));
-        
+    {        
         $task = new Task();
         $task->title = request('title');
         $task->save();
