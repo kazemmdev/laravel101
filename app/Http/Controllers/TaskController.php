@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreTaskRequest;
+use App\Http\Requests\UpdateTaskRequest;
 use App\Models\Task;
 
 class TaskController extends Controller
@@ -16,20 +18,9 @@ class TaskController extends Controller
         return view('tasks.create');
     }
 
-    public function store()
+    public function store(StoreTaskRequest $request)
     {
-        request()->validate([
-            'title' => 'required|min:3|max:120|unique:tasks,title',
-            'description' => 'nullable|min:3|max:255',
-            'expired_at' => 'nullable|date|after:now'
-        ]);
-
-        $task = new Task();
-        $task->title = request('title');
-        $task->description = request('description');
-        $task->expired_at = request('expired_at');
-        $task->save();
-
+        Task::create($request->validated());
         return redirect("/tasks", 201);
     }
 
@@ -43,21 +34,12 @@ class TaskController extends Controller
         return view('tasks.edit', compact('task'));
     }
 
-    public function update(Task $task)
+    public function update(Task $task, UpdateTaskRequest $request)
     {
-        request()->validate([
-            'title' => 'required|min:3|max:120',
-            'description' => 'nullable|min:3|max:255',
-            'expired_at' => 'nullable|date|after:now'
-        ]);
-
-        $task->title = request('title');
-        $task->description = request('description');
-        $task->expired_at = request('expired_at');
-        $task->save();
-
+        $task->update($request->validated());
         return redirect("/tasks");
     }
+
     public function destroy(Task $task)
     {
         $task->delete();

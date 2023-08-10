@@ -9,11 +9,13 @@ class Task extends Model
 {
     use HasFactory;
 
-protected $casts = [
-    'title'       => 'string',
-    'description' => 'string',
-    'created_at'  => 'datetime',
-    'updated_at'  => 'datetime',
-    'expired_at'  => 'datetime'
-];
+    protected $guarded = [];
+
+    protected $casts = [
+        'title'       => 'string',
+        'description' => 'string',
+        'created_at'  => 'datetime',
+        'updated_at'  => 'datetime',
+        'expired_at'  => 'datetime'
+    ];
 }
