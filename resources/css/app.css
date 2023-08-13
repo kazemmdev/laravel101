@@ -1,3 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.form {
+    @apply p-5 pt-6 bg-white rounded-xl transition border border-solid border-gray-200 shadow;
+}
+
+.form-input {
+    @apply w-full p-3 outline-none bg-transparent border-2 mb-3 rounded-xl focus:border-blue-500 transition-colors duration-300 ease-in-out;
+}
+
+.btn-primary {
+    @apply p-3 text-white rounded-xl bg-blue-500 hover:bg-blue-600 active:bg-blue-700 transition-colors duration-300 ease-in-out;
+}
+
+.btn-secondary {
+    @apply p-3 text-black text-center rounded-xl bg-gray-100 hover:bg-gray-200 active:bg-gray-300  transition-colors duration-300 ease-in-out;
+}
