@@ -3,20 +3,18 @@
 @section('title', 'Register')
 
 @section('content')
-   <h1 class="text-xl font-bold mb-4">Create a New Account</h1>
+   <h1 class="text-xl font-bold mb-4">Wellcome back!</h1>
 
-   <form method="POST" action={{ route('register.store') }} class="form">
+   <form method="POST" action={{ route('login.store') }} class="form">
       @csrf
-      <input type="name" id="name" name="name" value="{{ old("name") }}" 
-        placeholder="Name" class="form-input" />
       <input type="email" id="email" name="email" value="{{ old("email") }}" 
         placeholder="Email" class="form-input" />
-      <input type="password" id="password" name="password" value="{{ old("password") }}" 
+      <input type="password" id="password" name="password"
         placeholder="Password" class="form-input" />
       
       <div class="flex items-start justify-center space-x-2 pt-2">
-        <a href={{ route('login') }} class="btn-secondary flex-1">Login</a>
-        <button type="submit" class="btn-primary flex-1">Register</button>
+        <button type="submit" class="btn-primary flex-1">Login</button>
+        <a href={{ route('register') }} class="btn-secondary flex-1">Register</a>
       </div>
     
       {{-- errors --}}

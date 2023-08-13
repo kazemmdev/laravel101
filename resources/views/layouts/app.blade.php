@@ -7,7 +7,7 @@
     @vite('resources/css/app.css')
 </head>
 <body>
-    @include('nav')
+    @include('common.nav')
     <div class='w-full max-w-2xl mx-auto md:px-5 px-4 pt-8'>
         @yield('content')
     </div>
