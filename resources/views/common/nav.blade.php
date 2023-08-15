@@ -11,8 +11,8 @@
                 </form>
             @endauth
             @guest
-                <a class="btn-secondary text-sm !py-2 mr-2" href={{ route('login.create') }}>Sign In</a>
-                <a class="btn-primary text-sm !py-2" href={{ route('register.create') }}>Sign up</a>
+                <a class="btn-secondary text-sm !py-2 mr-2" href={{ route('login') }}>Sign In</a>
+                <a class="btn-primary text-sm !py-2" href={{ route('register') }}>Sign up</a>
             @endguest
         </li>
     </ul>
