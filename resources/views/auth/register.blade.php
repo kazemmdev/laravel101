@@ -1,22 +1,22 @@
 @extends('layouts.auth')
 
-@section('title', 'Register')
+@section('title', __('register'))
 
 @section('content')
-   <h1 class="text-xl font-bold mb-4">Create a New Account</h1>
+   <h1 class="text-xl font-bold mb-4">{{__('register.intro')}}</h1>
 
    <form method="POST" action={{ route('register.store') }} class="form">
       @csrf
       <input type="name" id="name" name="name" value="{{ old("name") }}" 
-        placeholder="Name" class="form-input" />
+        placeholder={{__('name')}} class="form-input" />
       <input type="email" id="email" name="email" value="{{ old("email") }}" 
-        placeholder="Email" class="form-input" />
+        placeholder={{__('email')}} class="form-input" />
       <input type="password" id="password" name="password" value="{{ old("password") }}" 
-        placeholder="Password" class="form-input" />
+        placeholder={{__('password')}} class="form-input" />
       
       <div class="flex items-start justify-center space-x-2 pt-2">
-        <a href={{ route('login') }} class="btn-secondary flex-1">Login</a>
-        <button type="submit" class="btn-primary flex-1">Register</button>
+        <a href={{ route('login') }} class="btn-secondary flex-1">{{__('login')}}</a>
+        <button type="submit" class="btn-primary flex-1">{{__('register')}}</button>
       </div>
     
       {{-- errors --}}

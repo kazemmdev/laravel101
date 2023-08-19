@@ -1,20 +1,20 @@
 @extends('layouts.auth')
 
-@section('title', 'Register')
+@section('title', __('login'))
 
 @section('content')
-   <h1 class="text-xl font-bold mb-4">Wellcome back!</h1>
+   <h1 class="text-xl font-bold mb-4">{{__('login.intro')}}</h1>
 
    <form method="POST" action={{ route('login.store') }} class="form">
       @csrf
       <input type="email" id="email" name="email" value="{{ old("email") }}" 
-        placeholder="Email" class="form-input" />
+        placeholder={{__('email')}} class="form-input" />
       <input type="password" id="password" name="password"
-        placeholder="Password" class="form-input" />
+        placeholder={{__('password')}} class="form-input" />
       
       <div class="flex items-start justify-center space-x-2 pt-2">
-        <button type="submit" class="btn-primary flex-1">Login</button>
-        <a href={{ route('register') }} class="btn-secondary flex-1">Register</a>
+        <button type="submit" class="btn-primary flex-1">{{__('login')}}</button>
+        <a href={{ route('register') }} class="btn-secondary flex-1">{{__('register')}}</a>
       </div>
     
       {{-- errors --}}

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ app()->getLocale() }}">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">    
@@ -11,5 +11,6 @@
     <div class='w-full max-w-2xl mx-auto md:px-5 px-4 pt-8'>
         @yield('content')
     </div>
+    @vite('resources/js/app.js')
 </body>
 </html>
