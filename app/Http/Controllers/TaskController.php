@@ -5,13 +5,12 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreTaskRequest;
 use App\Http\Requests\UpdateTaskRequest;
 use App\Models\Task;
-use Illuminate\Support\Facades\Auth;
 
 class TaskController extends Controller
 {
     public function index()
     {
-        return view('tasks.index', ['tasks' => Task::all()]);
+        return view('tasks.index');
     }
 
     public function create()
@@ -21,7 +20,7 @@ class TaskController extends Controller
 
     public function store(StoreTaskRequest $request)
     {
-        Task::create($request->validated());
+        auth()->user()->tasks()->create($request->validated());
         return redirect("/tasks", 201);
     }
 

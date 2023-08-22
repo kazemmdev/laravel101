@@ -18,4 +18,9 @@ class Task extends Model
         'updated_at'  => 'datetime',
         'expired_at'  => 'datetime'
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

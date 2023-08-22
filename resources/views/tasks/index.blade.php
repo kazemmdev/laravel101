@@ -8,7 +8,7 @@
       <a href="{{ route('tasks.create') }}" class="w-30 p-2 text-sm bg-green-600 hover:bg-green-700 active:bg-green-800 transition-all text-white rounded-xl">Add New</a>
    </div>
    <ul class="flex flex-col gap-2">
-      @foreach($tasks as $task)
+      @foreach(auth()->user()->tasks as $task)
          <li class="border py-4 px-5 rounded-xl flex items-center justify-between hover:bg-slate-100 hover:border-gray-200 transition-all">
             <p class="cursor-pointer">{{ $task->title }}</p>
             <div class="flex space-x-4">
