@@ -1,8 +1,10 @@
 import "./bootstrap";
 
-var dropper = document.getElementById("dropper");
-var dropdown = document.getElementById("dropdown");
+document.addEventListener("DOMContentLoaded", function () {
+    let dropper = document.getElementById("dropper");
+    let dropdown = document.getElementById("dropdown");
 
-dropper.addEventListener("click", function () {
-    dropdown.classList.toggle("hidden");
+    dropper?.addEventListener("click", function () {
+        dropdown?.classList.toggle("hidden");
+    });
 });

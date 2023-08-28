@@ -1,7 +1,7 @@
 <nav class="relative flex justify-between items-center bg-white">
     <ul class="h-full w-full max-w-2xl mx-auto md:px-5 px-4 py-4 space-x-4 flex items-center justify-between">
         <li>
-            <a class="text-gray-900 font-bold" href="/">{{ __('title') }}</a>
+            <a class="text-gray-900 font-bold" href="{{ route('tasks.index') }}">{{ __('title') }}</a>
         </li>
         <li class="flex">
             @auth

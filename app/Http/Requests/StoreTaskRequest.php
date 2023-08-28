@@ -8,7 +8,7 @@ class StoreTaskRequest extends FormRequest
 {
     public function authorize(): bool
     {
-        return true;
+        return auth()->check();
     }
 
     public function rules(): array
@@ -18,6 +18,13 @@ class StoreTaskRequest extends FormRequest
             'description' => 'nullable|min:3|max:255',
             'expired_at' => 'nullable|date|after:now'
         ];
+    }
+
+    public function validated($key = null, $default = null)
+    {
+        if ($key == 'tags') return json_decode(request('tags'));
+
+        return $this->validator->validated();
     }
 
     public function messages(): array

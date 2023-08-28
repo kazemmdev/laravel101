@@ -19,4 +19,11 @@ class UpdateTaskRequest extends FormRequest
             'expired_at' => 'nullable|date|after:now'
         ];
     }
+
+    public function validated($key = null, $default = null)
+    {
+        if ($key == 'tags') return json_decode(request('tags'));
+
+        return $this->validator->validated();
+    }
 }

@@ -20,7 +20,9 @@ class TaskController extends Controller
 
     public function store(StoreTaskRequest $request)
     {
-        auth()->user()->tasks()->create($request->validated());
+
+        $task = auth()->user()->tasks()->create($request->validated());
+        $task->tags()->attach($request->validated('tags'));
         return redirect("/tasks", 201);
     }
 
@@ -37,6 +39,7 @@ class TaskController extends Controller
     public function update(Task $task, UpdateTaskRequest $request)
     {
         $task->update($request->validated());
+        $task->tags()->sync($request->validated('tags'));
         return redirect("/tasks");
     }
 

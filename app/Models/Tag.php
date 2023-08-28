@@ -5,27 +5,20 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Task extends Model
+class Tag extends Model
 {
     use HasFactory;
 
     protected $guarded = [];
 
     protected $casts = [
-        'title'       => 'string',
-        'description' => 'string',
+        'name'        => 'string',
         'created_at'  => 'datetime',
         'updated_at'  => 'datetime',
-        'expired_at'  => 'datetime'
     ];
 
-    public function user()
+    public function tasks()
     {
-        return $this->belongsTo(User::class);
-    }
-
-    public function tags()
-    {
-        return $this->belongsToMany(Tag::class);
+        return $this->belongsToMany(Task::class);
     }
 }

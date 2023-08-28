@@ -10,7 +10,7 @@
    <ul class="flex flex-col gap-2">
       @foreach(auth()->user()->tasks as $task)
          <li class="border py-4 px-5 rounded-xl flex items-center justify-between hover:bg-slate-100 hover:border-gray-200 transition-all">
-            <p class="cursor-pointer">{{ $task->title }}</p>
+            <a href="{{ route('tasks.show', $task->id) }}" class="cursor-pointer">{{ $task->title }}</a>
             <div class="flex space-x-4">
                <a href={{ route('tasks.edit', $task->id) }}><x-untitledui-edit-05 class="w-6 h-6 text-gray-500 cursor-pointer hover:text-green-500"/></a>
                <form action="{{ route('tasks.destroy', $task->id) }}" method="POST">
