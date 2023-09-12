@@ -8,6 +8,9 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
+/**
+ * @method static create(mixed $validated)
+ */
 class User extends Authenticatable
 {
     use HasFactory, Notifiable;
@@ -27,7 +30,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         // 'password' => 'hashed',
     ];
-    
+
     /**
      * @return HasMany
      */

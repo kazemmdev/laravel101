@@ -7,7 +7,6 @@ use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\LocaleController;
 use App\Http\Controllers\TagController;
-use App\Http\Controllers\TagSearchController;
 
 Route::view('/', 'home')->name('home');
 
@@ -18,12 +17,10 @@ Route::post('register', [RegisterController::class, 'store'])->name('register.st
 
 Route::get('login', [LoginController::class, 'create'])->name('login');
 Route::post('login', [LoginController::class, 'store'])->name('login.store');
+Route::post('logout', LogoutController::class)->name('logout');
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::post('logout', LogoutController::class)->name('logout');
-
     Route::resource('tasks', TaskController::class);
-
     Route::get('tags', [TagController::class, 'index'])->name('tags.search');
     Route::post('tags', [TagController::class, 'store'])->name('tags.search');
 });
